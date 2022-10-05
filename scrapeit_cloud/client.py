@@ -18,5 +18,6 @@ class ScrapeitCloudClient:
         }
 
         headers.update(default_headers)
+        params["source"] = "python_sdk"
 
         return request("POST", self.api_url, data=params, headers=headers, **kwargs)
