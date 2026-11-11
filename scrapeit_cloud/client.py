@@ -3,7 +3,7 @@ from requests import request, Response
 from .default_headers import default_headers
 
 class ScrapeitCloudClient:
-    api_url = "https://api.scrape-it.cloud/scrape"
+    api_url = "https://api.hasdata.com/scrape/web"
 
     def __init__(self, api_key: str):
         self.api_key = api_key
@@ -20,4 +20,4 @@ class ScrapeitCloudClient:
         headers.update(default_headers)
         params["source"] = "python_sdk"
 
-        return request("POST", self.api_url, data=params, headers=headers, **kwargs)
+        return request("POST", self.api_url, json=params, headers=headers, **kwargs)
